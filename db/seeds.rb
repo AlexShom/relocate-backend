@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require "json"
+
+Postcode.destroy_all
+
+json = File.read("/Users/alexshom/Documents/GitHub/relocate/relocate-backend/db/migrate/londonPostData.json")
+
+result = JSON.parse(json).map{|code| Postcode.create(data: code)}
+
+puts result
