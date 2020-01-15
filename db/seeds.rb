@@ -9,9 +9,10 @@
 require "json"
 
 Postcode.destroy_all
+Map.destroy_all
 
+mapJson = File.read("/Users/alexshom/Documents/GitHub/relocate/relocate-backend/db/migrate/mapData.json")
 json = File.read("/Users/alexshom/Documents/GitHub/relocate/relocate-backend/db/migrate/londonPostData.json")
 
 result = JSON.parse(json).map{|code| Postcode.create(data: code)}
-
-puts result
+mapResult = Map.create(name: "baseLayer", data: JSON.parse(mapJson))
