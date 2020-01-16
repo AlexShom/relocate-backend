@@ -1,14 +1,12 @@
 class MapsController < ApplicationController
-
-def index
-  maps = Map.all
-  render json: maps
-end
-
-def show
-  map = Map.find(params[:id])
-
-  render json: map.data
-end
+  def index
+    if params[:name]
+      map = Map.find_by name: params[:name]
+      render json: map
+    else
+      maps = Map.all
+      render json: maps
+    end
+  end
 
 end

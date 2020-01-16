@@ -15,4 +15,4 @@ mapJson = File.read("/Users/alexshom/Documents/GitHub/relocate/relocate-backend/
 json = File.read("/Users/alexshom/Documents/GitHub/relocate/relocate-backend/db/migrate/londonPostData.json")
 
 result = JSON.parse(json).map{|code| Postcode.create(data: code)}
-mapResult = Map.create(name: "baseLayer", data: JSON.parse(mapJson))
+mapResult = Map.create(name: "base_layer", data: JSON.parse(mapJson))
