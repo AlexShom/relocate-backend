@@ -9,7 +9,7 @@ class PostcodesController < ApplicationController
         crime_rate: code.data["Crime rate"].to_s.gsub(",", "").to_i,
         education: code.data["Degree educated"].to_s.gsub(",", "").to_i,
         social_grade: code.data["Social grade AB"].to_s.gsub(",", "").to_i,
-        average_bedrooms: code.data["Average bedrooms"].to_s.gsub(",", "").to_f.round,
+        average_bedrooms: code.data["Average bedrooms"].to_s.gsub(",", "").to_f,
         availability: code.data["Sales per month"].to_s.gsub(",", "").to_i,
         population: code.data["Population"].to_s.gsub(",", "").to_i,
       }
