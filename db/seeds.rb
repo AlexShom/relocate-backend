@@ -11,8 +11,8 @@ require "json"
 Postcode.destroy_all
 Map.destroy_all
 
-mapJson = File.read("./mapData.json")
-json = File.read("./londonPostData.json")
+mapJson = File.read("../bin/mapData.json")
+json = File.read("../bin/londonPostData.json")
 
 result = JSON.parse(json).map{|code| Postcode.create(data: code)}
 mapResult = Map.create(name: "base_layer", data: JSON.parse(mapJson))
