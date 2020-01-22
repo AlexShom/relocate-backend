@@ -11,7 +11,7 @@ require "json"
 Postcode.destroy_all
 Map.destroy_all
 
-mapJson = File.read("./migrate/mapData.json")
+mapJson = File.read("./mapData.json")
 json = File.read("./londonPostData.json")
 
 result = JSON.parse(json).map{|code| Postcode.create(data: code)}
